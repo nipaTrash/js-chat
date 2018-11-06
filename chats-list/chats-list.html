@@ -1,0 +1,10 @@
+  <!--<button (click)="setChatTemp()">Update</button>-->
+
+<chats-list-item 
+    *ngFor="let chat of chats | 
+            chatsFilter:filterUnreadState:'unread' | 
+            chatsFilter:filterFlagState:'flag' | 
+            chatsFilter:filterLabel:'label'" 
+    [chatDetails]="chat" 
+    (chatListItemClicked)="onChatListItemClicked($event)"
+></chats-list-item><hr>

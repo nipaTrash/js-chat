@@ -1,0 +1,4 @@
+<form (ngSubmit)="onSend()" [formGroup]="replayForm"> 
+    <input type="text" formControlName="replayInput">
+    <button type="submit" [disabled]="!replayForm.valid">Send</button>
+</form>

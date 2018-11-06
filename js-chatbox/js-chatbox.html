@@ -1,0 +1,31 @@
+<js-ng-popup [popupOptions]="popupOptions" (onClose)="closeChatBox()" *ngIf="!chatboxClosed">
+    
+    <div class="chatbox">
+        <div style="border:1px solid black; height:300px;width:200px;float:right;">
+
+            <div class="js-chatbox-chats-list" *ngIf="!_openChat && !chat?.id">
+               <div class="chatbox-options">
+                    <chats-filters></chats-filters>
+                    <button (click)="createNewChatbox()">new</button>
+               </div>
+                <chats-list (chatListItemClicked)="onGetChat($event)"></chats-list>
+            </div> 
+
+            <ng-template [ngIf]="chat?.id && !_openChat">
+                <chat-users-selector [usersSelected]="chat.users"></chat-users-selector>
+                <input type="text" placeholder="Asunto" [(ngModel)]="chat.title">
+                <button (click)="createNewChat()" [disabled]="chat.users.length<=0">Ok</button>
+            </ng-template>
+
+            <ng-template [ngIf]="_openChat">
+                <chat-history [chat]="chat"></chat-history>
+                <br/>
+                <chat-reply [chat]="chat"></chat-reply>
+            </ng-template>
+
+        </div>
+    </div>
+    
+</js-ng-popup>
+
+

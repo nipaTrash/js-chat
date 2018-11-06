@@ -1,0 +1,10 @@
+<js-ng-popup
+   [popupOptions]="popupOptions" 
+   (onClose)="onClosePopup($event)" 
+   (onSave)="onSave($event)"
+   (onCancel)="onCancel($event)"
+   >
+        
+    <js-ng-labels-editor [labels]="labels"></js-ng-labels-editor>
+    
+</js-ng-popup>

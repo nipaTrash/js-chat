@@ -1,0 +1,20 @@
+<!--<form (ngSubmit)="onSend()" [formGroup]="folderForm">
+    <select class="form-control form-control-sm" formControlName="folderSelect">
+        <option selected value="">All</option>
+        <option *ngFor="let folder of _folders" [value]="folder.id">{{folder.name}}</option>
+        <option>Add folder</option>
+    </select>
+</form>-->
+  
+  
+<!--<js-form-select (onChange)="onChangeFolder($event)" [formValues]="_folders" [formOptions]="folderSelectOptions"></js-form-select>-->
+   
+<js-ng-menu-dropdown [dropdownOptions]="labelDropdownOptions" [items]="labels" (onItemSelected)="changeLabel($event)" (onActionClicked)="onActionClicked($event)"></js-ng-menu-dropdown>
+  
+<div style="max-width:300px;float:left;">
+    <button style="margin:0 auto; float:left;" (click)="changeLabel('')">{{allLabelsName}}</button>
+   <div *ngFor="let label of labels" style="margin:0 auto; float:left;">
+        <button *ngIf="label.bookmark" [ngStyle]="{'background-color':label.color}" (click)="changeLabel(label.id)">{{label.name}}</button>
+   </div>
+</div>
+   

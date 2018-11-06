@@ -1,0 +1,29 @@
+<div [ngClass]="css.chatsListItem">
+   <div [ngClass]="css.chatsListItemHeader" (click)="onClickChatListItem()">
+        <div [ngClass]="css.chatsListItemTitle">
+            {{lastMsgDetails?.from}}
+        </div>
+        <div [ngClass]="css.chatsListItemSubtitle">
+            {{chatDetails.subject}}
+        </div>  
+       {{lastMsgDetails?.content}}
+   </div>
+    
+    
+    <div [ngClass]="css.chatsListItemFooter">
+        <span class="chats-list-item-unread badge badge-primary badge-pill" *ngIf="chatDetails.unread>0">
+            {{chatDetails.unread}}
+        </span>
+        <span [ngClass]="css.chatsListItemFooterSubmenu" (click)="toggleFlag()">flag{{chatDetails.flag}}</span>
+        
+        <js-ng-form-select 
+            (onChange)="onChangeLabelSelect($event)" 
+            [formValues]="labels"
+            [formOptions]="labelSelectOptions"
+        ></js-ng-form-select>
+        
+    </div>
+    
+</div>
+
+

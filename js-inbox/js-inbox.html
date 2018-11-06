@@ -1,0 +1,21 @@
+<div [ngClass]="css.container">
+   <div class="card" style="float:left;width:100%">
+       <div class="card-body">
+            <chats-filters style="margin: 0 auto; float:left;"></chats-filters>
+            <chats-labels style="margin: 0 auto; float:left;"></chats-labels>
+            <chats-search style="margin: 0 auto; float:left;"></chats-search>
+            <button class="btn btn-light" (click)="createNewChatbox()">new</button>
+       </div>
+
+    </div>
+    <div [ngClass]="css.aside">
+        
+        <chats-list [ngClass]="css.chatsList" (chatListItemClicked)="onChatListItemClicked($event)"></chats-list>
+
+    </div>
+    
+    <div [ngClass]="css.content" style="float:left;">
+ 
+        <inbox-chat [chat]="chat"></inbox-chat>
+    </div>
+</div>
